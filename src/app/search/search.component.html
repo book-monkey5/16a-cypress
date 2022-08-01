@@ -9,7 +9,7 @@
   <li *ngFor="let book of results">
     <a [routerLink]="['/books', book.isbn]">
       {{ book.title }}
-      <p>{{ book.subtitle }}</p>
+      <p role="doc-subtitle">{{ book.subtitle }}</p>
     </a>
   </li>
 </ul>

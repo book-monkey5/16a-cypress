@@ -1,37 +1,32 @@
 <div class="details" *ngIf="book">
-  <h2>{{ book.title }}</h2>
-  <h3 *ngIf="book.subtitle">{{ book.subtitle }}</h3>
+  <h1>{{ book.title }}</h1>
+  <p role="doc-subtitle" *ngIf="book.subtitle">{{ book.subtitle }}</p>
   <div class="header">
     <div>
-      <h4>Authors</h4>
-      <ng-container *ngFor="let author of book.authors">
-        {{ author }}<br>
-      </ng-container>
+      <h2>Authors</h2>
+      <ul>
+        <li *ngFor="let author of book.authors">{{ author }}</li>
+      </ul>
     </div>
     <div>
-      <h4>ISBN</h4>
+      <h2>ISBN</h2>
       {{ book.isbn | isbn }}
     </div>
     <div *ngIf="book.published">
-      <h4>Published</h4>
+      <h2>Published</h2>
       {{ book.published | date:'longDate' }}
     </div>
   </div>
-  <h3>Description</h3>
+  <h2>Description</h2>
   <p>{{ book.description }}</p>
-  <div class="thumbnails">
-    <img *ngIf="book.thumbnailUrl"
-      [src]="book.thumbnailUrl"
-      alt="Cover">
-  </div>
-
+  <img *ngIf="book.thumbnailUrl"
+    [src]="book.thumbnailUrl"
+    alt="Cover">
   <a class="button arrow-left" routerLink="..">Back to list</a>
-
   <ng-container *bmLoggedinOnly>
     <button class="red" bmConfirm="Remove book?" (confirm)="removeBook()">
       Remove book
     </button>
-
     <a class="button"
       [routerLink]="['/admin/edit', book.isbn]">
       Edit book

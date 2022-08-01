@@ -23,7 +23,7 @@ export class LoggedinOnlyDirective implements OnDestroy {
       } else {
         this.viewContainer.clear();
       }
-    })
+    });
   }
 
   ngOnDestroy() {

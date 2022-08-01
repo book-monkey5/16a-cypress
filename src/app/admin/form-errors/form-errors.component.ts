@@ -13,16 +13,13 @@ export class FormErrorsComponent {
   constructor(private form: FormGroupDirective) {}
 
   get errors(): string[] {
-    const control =
-      this.controlName &&
-      this.form.control.get(this.controlName);
+    if (!this.controlName) {
+      return [];
+    }
 
-    if (
-      !control ||
-      !this.messages ||
-      !control.errors ||
-      !control.touched
-    ) {
+    const control = this.form.control.get(this.controlName);
+
+    if (!control || !control.errors || !control.touched) {
       return [];
     }
 

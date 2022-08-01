@@ -1,11 +1,11 @@
 import { FormArray, ValidatorFn } from '@angular/forms';
 
 export const isbnFormat: ValidatorFn = function(control) {
-  if (!control.value) {
+  if (!control.value || typeof control.value !== 'string') {
     return null;
   }
 
-  const isbnWithoutDashes = control.value.replaceAll('-', '');
+  const isbnWithoutDashes = control.value.replace(/-/g, '');
   const length = isbnWithoutDashes.length;
 
   if (length === 10 || length === 13) {

@@ -1,6 +1,7 @@
+<h1>Books</h1>
 <ul class="book-list" *ngIf="books$ | async as books">
-  <li *ngFor="let b of books">
-    <bm-book-list-item [book]="b" [routerLink]="b.isbn"></bm-book-list-item>
+  <li *ngFor="let book of books">
+    <bm-book-list-item [book]="book"></bm-book-list-item>
   </li>
   <li *ngIf="!books.length">
     No books available.
