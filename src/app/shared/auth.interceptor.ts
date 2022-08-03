@@ -11,7 +11,7 @@ import { AuthService } from './auth.service';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor(private auth: AuthService) {}
+  constructor(private authService: AuthService) {}
 
   intercept(
     request: HttpRequest<unknown>,
@@ -19,15 +19,15 @@ export class AuthInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     const token = '1234567890';
 
-    if (this.auth.isAuthenticated) {
+    if (this.authService.isAuthenticated) {
       // Token in Header einfügen
-      const newReq = request.clone({
+      const reqWithToken = request.clone({
         setHeaders: {
           Authorization: `Bearer ${token}`
         }
       });
 
-      return next.handle(newReq);
+      return next.handle(reqWithToken);
     } else {
       // Request unverändert weitergeben
       return next.handle(request);
