@@ -11,7 +11,6 @@ import { BookStoreService } from '../../shared/book-store.service';
   styleUrls: ['./book-edit.component.css']
 })
 export class BookEditComponent {
-
   book?: Book;
 
   constructor(
@@ -24,7 +23,6 @@ export class BookEditComponent {
       switchMap(isbn => this.service.getSingle(isbn))
     ).subscribe(book => this.book = book);
   }
-
 
   update(book: Book) {
     this.service.update(book).subscribe(updatedBook => {

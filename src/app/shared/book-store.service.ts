@@ -14,7 +14,10 @@ export class BookStoreService {
 
   getAll(): Observable<Book[]> {
     return this.http.get<Book[]>(`${this.apiUrl}/books`).pipe(
-      catchError(() => of([]))
+      catchError(err => {
+        console.error(err);
+        return of([]);
+      })
     );
   }
 
@@ -28,7 +31,10 @@ export class BookStoreService {
 
   getAllSearch(term: string): Observable<Book[]> {
     return this.http.get<Book[]>(`${this.apiUrl}/books/search/${term}`).pipe(
-      catchError(() => of([]))
+      catchError(err => {
+        console.error(err);
+        return of([]);
+      })
     );
   }
 

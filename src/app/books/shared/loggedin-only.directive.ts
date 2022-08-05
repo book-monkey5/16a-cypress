@@ -26,7 +26,7 @@ export class LoggedinOnlyDirective implements OnDestroy {
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.destroy$.next();
   }
 

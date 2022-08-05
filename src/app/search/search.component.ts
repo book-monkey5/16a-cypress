@@ -22,8 +22,7 @@ export class SearchComponent {
       tap(() => this.isLoading = true),
       switchMap(term => this.service.getAllSearch(term)),
       tap(() => this.isLoading = false)
-    )
-    .subscribe(books => {
+    ).subscribe(books => {
       this.results = books;
     });
   }
