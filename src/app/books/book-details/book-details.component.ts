@@ -25,7 +25,7 @@ export class BookDetailsComponent {
   removeBook() {
     if (this.book) {
       this.service.remove(this.book.isbn).subscribe(() => {
-        this.router.navigateByUrl('/books')
+        this.router.navigateByUrl('/books');
       });
     }
   }
