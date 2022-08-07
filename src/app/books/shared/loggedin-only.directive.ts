@@ -7,7 +7,6 @@ import { AuthService } from '../../shared/auth.service';
   selector: '[bmLoggedinOnly]'
 })
 export class LoggedinOnlyDirective implements OnDestroy {
-
   private destroy$ = new Subject<void>();
 
   constructor(
@@ -29,5 +28,4 @@ export class LoggedinOnlyDirective implements OnDestroy {
   ngOnDestroy(): void {
     this.destroy$.next();
   }
-
 }

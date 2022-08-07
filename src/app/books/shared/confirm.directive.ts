@@ -4,7 +4,6 @@ import { Directive, EventEmitter, HostListener, Input, Output } from '@angular/c
   selector: '[bmConfirm]'
 })
 export class ConfirmDirective {
-
   @Input('bmConfirm') confirmText?: string;
   @Output() confirm = new EventEmitter<void>();
 
@@ -13,5 +12,4 @@ export class ConfirmDirective {
       this.confirm.emit();
     }
   }
-
 }
