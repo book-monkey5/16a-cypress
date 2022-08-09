@@ -1,4 +1,4 @@
-<div class="details" *ngIf="book">
+<div class="details" *ngIf="book$ | async as book">
   <h1>{{ book.title }}</h1>
   <p role="doc-subtitle" *ngIf="book.subtitle">{{ book.subtitle }}</p>
   <div class="header">
@@ -24,7 +24,7 @@
     alt="Cover">
   <a class="button arrow-left" routerLink="..">Back to list</a>
   <ng-container *bmLoggedinOnly>
-    <button class="red" bmConfirm="Remove book?" (confirm)="removeBook()">
+    <button class="red" bmConfirm="Remove book?" (confirm)="removeBook(book.isbn)">
       Remove book
     </button>
     <a class="button"

@@ -11,18 +11,16 @@ import { BookStoreService } from '../../shared/book-store.service';
   styleUrls: ['./book-edit.component.css']
 })
 export class BookEditComponent {
-  book?: Book;
+  book$ = this.route.paramMap.pipe(
+    map(params => params.get('isbn')!),
+    switchMap(isbn => this.service.getSingle(isbn))
+  );
 
   constructor(
     private service: BookStoreService,
     private route: ActivatedRoute,
     private router: Router
-  ) {
-    this.route.paramMap.pipe(
-      map(params => params.get('isbn')!),
-      switchMap(isbn => this.service.getSingle(isbn))
-    ).subscribe(book => this.book = book);
-  }
+  ) {}
 
   update(book: Book) {
     this.service.update(book).subscribe(updatedBook => {
