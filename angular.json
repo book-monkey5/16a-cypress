@@ -122,6 +122,20 @@
             "headless": false
           }
         },
+        "ct": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "book-monkey:serve",
+            "watch": true,
+            "headless": false,
+            "testingType": "component"
+          },
+          "configurations": {
+            "development": {
+              "devServerTarget": "book-monkey:serve:development"
+            }
+          }
+        },
         "e2e": {
           "builder": "@cypress/schematic:cypress",
           "options": {
