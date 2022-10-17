@@ -4,7 +4,7 @@ describe('BookMonkey', () => {
   });
 
   it('should open the home page by default', () => {
-    cy.get('h1');
+    cy.get('h1')
       .should('contain', 'Home');
     cy.url()
       .should('contain', '/home');
