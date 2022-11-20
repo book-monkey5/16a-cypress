@@ -24,7 +24,7 @@ describe('BookMonkey', () => {
       .as('adminButton')
       .click();
     cy.on('window:alert', (str) => {
-      expect(str).to.equal('Not logged in!')
+      expect(str).to.equal('Not logged in!');
     });
     cy.url()
       .should('not.contain', '/admin/create');
