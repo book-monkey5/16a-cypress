@@ -60,7 +60,7 @@ describe('BookMonkey', () => {
     cy.wait('@search');
     cy.get('.search-results')
       .should('not.exist');
-  })
+  });
 
   it('should display the books list', () => {
     cy.intercept('https://api5.angular-buch.com/books', {
