@@ -32,7 +32,7 @@ describe('BookMonkey', () => {
       .should('not.have.class', 'active');
   });
 
-  it('should find all angular books using the search input', () => {
+  it('should find all angular books using search input', () => {
     cy.intercept('GET', 'https://api5.angular-buch.com/books/search/Angular')
       .as('search');
     cy.get('input[type=search]')
@@ -49,7 +49,7 @@ describe('BookMonkey', () => {
       });
   });
 
-  it('should not open the search results box on server errors', () => {
+  it('should not open the results box on server errors', () => {
     cy.intercept('GET', 'https://api5.angular-buch.com/books/search/*', {
       statusCode: 500,
       body: '500 Internal Server Error',
