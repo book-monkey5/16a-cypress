@@ -11,7 +11,7 @@ describe('BookMonkey', () => {
   });
 
   it('should not show the administration form when not logged in', () => {
-    cy.get('nav > button')
+    cy.get('nav button')
       .as('loginLogoutBtn')
       .contains('Logout')
       .should('have.class', 'red')

@@ -31,10 +31,10 @@ export class BookStoreService {
 
   getAllSearch(term: string): Observable<Book[]> {
     return this.http.get<Book[]>(`${this.apiUrl}/books/search/${term}`).pipe(
-      catchError(err => {
+      /*catchError(err => {
         console.error(err);
         return of([]);
-      })
+      })*/
     );
   }
 
